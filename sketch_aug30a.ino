@@ -5,8 +5,8 @@ const int D2 = 2;
 const int D4 = 4;
 const int D16 = 16;
 const int D17 = 17;
-const int velocidad = 150;
 
+int incoming = 0;
 
 void setup() {
   Serial.begin(9600); // Inicialización de la conexión en serie para la depuración
@@ -21,7 +21,7 @@ void setup() {
 void loop() {
   if (BT.available()) // Compruebe si recibimos algo de Bluetooth
   {
-    int incoming = BT.read(); // Lee lo que recibimos
+    incoming = BT.read(); // Lee lo que recibimos
     switch (incoming){
       case 70:
         adelante();
@@ -38,9 +38,7 @@ void loop() {
       case 48:
         frenar();
         break;
-      default:
-        frenar();
-        break;
+    
     }
   
   }
